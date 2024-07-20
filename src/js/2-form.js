@@ -27,6 +27,13 @@ const onFeedbackFormInput = event => {
 
 const onFeedbackFormSubmit = event => {
   event.preventDefault();
+  const email = event.target.email.value;
+  const message = event.target.message.value;
+
+  if (!email || !message) {
+    alert('Fill please all fields');
+    return;
+  }
 
   localStorage.removeItem('feedback-form-state');
   feedbackForm.reset();
